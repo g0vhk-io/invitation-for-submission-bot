@@ -49,8 +49,8 @@ invitation_ids = [j['InvitationId'] for j in  req.json()]
 
 
 
-TOKEN = environ['TOKEN']
-CHANNEL = environ['CHANNEL']
+TOKEN = environ['MORPH_TOKEN']
+CHANNEL = environ['MORPH_CHANNEL']
 
 for key in invitation_ids:
     r = requests.get('https://app3.legco.gov.hk/ors/api/Registrations/GetInvitation?invId=%d' % key)
