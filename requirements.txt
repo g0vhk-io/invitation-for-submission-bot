@@ -1,0 +1,7 @@
+-e git+http://github.com/openaustralia/scraperwiki-python.git@morph_defaults#egg=scraperwiki
+
+lxml==3.4.4
+cssselect==0.9.1
+beautifulsoup4==4.6.0
+requests==2.18.4
+pytz==2017.3 See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
