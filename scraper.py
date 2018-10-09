@@ -5,6 +5,7 @@ from textwrap3 import wrap
 from PIL import Image, ImageDraw, ImageFont
 import io
 from os import environ
+import sys
 
 def get_committee(data):
     committee = data['CommitteeChi']
@@ -45,6 +46,9 @@ headers = {'Cookie': 'AspxAutoDetectCookieSupport=1;PrinterFirendly=PrinterFiren
            'X-Requested-With': 'XMLHttpRequest',
            'Referer': 'https://app3.legco.gov.hk/ors/chinese/List.aspx'}
 req = requests.get('https://app3.legco.gov.hk/ors/api/Registrations/GetInvitations', headers=headers)
+if req.text.strip() == '':
+    print('No invitation found.')
+    sys.exit(0)
 invitation_ids = [j['InvitationId'] for j in  req.json()]
 
 
